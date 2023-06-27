@@ -1,0 +1,21 @@
+﻿@using Eduker.Areas.Admin.ViewModels.UserVm;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EditUserRoleVm
+
+<form method="post">
+    <div>
+        <p>RoleName</p>
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <button type="submit">
+        CommitChanges
+    </button>
+</form>
+
+<a asp-area="Admin" asp-controller="User" asp-action="Index">
+    <button type="submit">
+        Back
+    </button>
+</a>

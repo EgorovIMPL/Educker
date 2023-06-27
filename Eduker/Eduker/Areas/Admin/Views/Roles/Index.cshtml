@@ -1,0 +1,44 @@
+﻿@using Eduker.Areas.Admin.ViewModels.RolesVm;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<RoleVm>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    @{
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Name</td>
+
+                <td>
+                    <a asp-area="Admin" asp-controller="Roles" asp-action="Edit" asp-route-id="@x.Id">
+                        <button>
+                            Edit
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Roles" asp-action="Delete" asp-route-id="@x.Id">
+                        <button>
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<form method="post">
+    <div>
+        <p>RoleName</p>
+        @Html.Editor("name")
+        @Html.ValidationMessageFor(model => model.First().Name)
+    </div>
+    <button type="submit">
+        CreateRole
+    </button>
+</form>

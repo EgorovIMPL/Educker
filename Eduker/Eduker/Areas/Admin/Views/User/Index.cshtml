@@ -1,0 +1,103 @@
+﻿@using Eduker.Areas.Admin.ViewModels.UserVm;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<UserVm>
+@{
+    List<int> a = new List<int>();
+}
+
+
+<h1>List of Users</h1>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+    @{
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Name</td>
+
+                <td>
+                    <a asp-area="Admin" asp-controller="User" asp-action="EditUser" asp-route-id="@x.Id">
+                        <button>
+                            Edit
+                        </button>
+                    </a>
+                </td>
+                <td>
+                    <a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-id="@x.Id">
+                        <button>
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<p>Add User</p>
+<form method="post">
+    <div>
+        <p>UserName</p>
+        @Html.Editor("name")
+        @Html.ValidationMessage("name")
+    </div>
+
+    <div>
+        <p>Email</p>
+        @Html.Editor("email")
+        @Html.ValidationMessage("email")
+    </div>
+
+    <div>
+        <p>Password</p>
+        @Html.Editor("password")
+        @Html.ValidationMessage("password")
+    </div>
+
+    <div>
+        <p>Role</p>
+        @Html.Editor("role")
+        @Html.ValidationMessage("role")
+    </div>
+
+    <div>
+        <p>RealName</p>
+        @Html.Editor("realname")
+    </div>
+
+    <div>
+        <p>Address</p>
+        @Html.Editor("address")
+    </div>
+
+    <button type="submit">
+        Create User
+    </button>
+</form>
+<br/>
+
+<h1>User Roles</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+    </tr>
+    @{
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Name</td>
+                <td>@x.Role</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="User" asp-action="EditRole" asp-route-id="@x.Id">
+                        <button>
+                            Change
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+</table>

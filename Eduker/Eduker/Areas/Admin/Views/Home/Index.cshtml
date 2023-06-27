@@ -1,0 +1,47 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_AdminLayout";
+}
+<p>What you want to do </p>
+<div>
+    <div>
+        <a asp-area="Admin" asp-controller="Roles" asp-action="Index">
+            <button>
+                Roles
+            </button>
+        </a>
+    </div>
+
+    <div>
+        <a asp-area="Admin" asp-controller="User" asp-action="Index">
+            <button>
+                Users
+            </button>
+        </a>
+    </div>
+
+    <div>
+        <a asp-area="Admin" asp-controller="Course" asp-action="Index">
+            <button>
+                Courses
+            </button>
+        </a>
+    </div>
+
+    @* <div> *@
+    @*     <a asp-area="Admin" asp-controller="Event" asp-action="Index"> *@
+    @*         <button> *@
+    @*             Events *@
+    @*         </button> *@
+    @*     </a> *@
+    @* </div> *@
+
+    <div>
+        <a asp-area="Admin" asp-controller="Instructor" asp-action="Index">
+            <button>
+                Instructor
+            </button>
+        </a>
+    </div>
+
+</div>

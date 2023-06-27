@@ -1,0 +1,39 @@
+﻿@using Eduker.Areas.Admin.ViewModels.UserVm;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EditUserVm
+
+<form method="post">
+    <div>
+        <p>UserName</p>
+        @Html.EditorFor(model => model.UserName)
+        @Html.ValidationMessageFor(model => model.UserName, "имена должны быть разными")
+    </div>
+
+    <div>
+        <p>Email</p>
+        @Html.EditorFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email, "Не может быть 2 одиннаковые почты на одном аккаунте")
+    </div>
+
+    <div>
+        <p>RealName</p>
+        @Html.EditorFor(model => model.RealName)
+        @Html.ValidationMessageFor(model => model.RealName, "Заполнить")
+    </div>
+
+    <div>
+        <p>Address</p>
+        @Html.EditorFor(model => model.Address)
+        @Html.ValidationMessageFor(model => model.Address, "Заполнить")
+    </div>
+
+    <button type="submit">
+        CommitChanges
+    </button>
+</form>
+
+<a asp-area="Admin" asp-controller="User" asp-action="Index">
+    <button type="submit">
+        Back
+    </button>
+</a>
